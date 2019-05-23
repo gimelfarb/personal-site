@@ -1,0 +1,76 @@
+.link-block {
+  margin: 0 1.5rem 1.5rem 1.5rem !important;
+  a {
+    .heading {
+      color: #363636;
+      opacity: 0;
+      transition: all 0.5s;
+    }
+    .title {
+      transition: all 0.5s;
+    }
+    &:hover {
+      .heading {
+        opacity: 1;
+      }
+      .title {
+        color: #363636;
+        transform: scale(1.1);
+      }
+    }
+  }
+  .has-color-linkedin {
+    color: #1F88BE;
+  }
+  .has-color-twitter {
+    color: #55ACEE;
+  }
+  .has-color-google {
+    color: #DD4B39;
+  }
+}
+
+.award-block {
+  width: 15rem;
+  max-width: 15rem;
+  padding-bottom: 1.5rem;
+}
+
+.has-color-award {
+  color: #FF851B;
+}
+
+.skill-block {
+  width: 15rem;
+  max-width: 15rem;
+  padding-bottom: 1.5rem;
+
+  .tag {
+    background-color: #363636;
+    color: whitesmoke;
+  }
+}
+
+.project-block {
+  width: 20rem;
+  max-width: 20rem;
+
+  a.card-header {
+    color: #363636;
+    &:hover {
+      background-color: #363636;
+      color: whitesmoke;
+      .card-header-title {
+        color: whitesmoke;
+      }
+    }
+  }
+
+  .card-content .content {
+    min-height: 5rem;
+  }
+}
+
+.has-color-timeline {
+  color: #0074D9;
+}

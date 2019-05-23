@@ -1,0 +1,18 @@
+.title.is-big {
+  font-size: 5rem;
+}
+
+.tag.is-code {
+  font-family: $family-code;
+  background-color: $dark;
+  color: $light;
+}
+
+.has-uncolored-link {
+  a {
+    color: inherit;
+    &:hover {
+      color: #363636;
+    }
+  }
+}

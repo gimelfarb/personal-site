@@ -1,0 +1,66 @@
+.hero {
+  /* Adapted from: https://codemyui.com/dripping-down-arrow/ */
+  .down-arrow {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+
+    .chevron {
+      position: absolute;
+      width: 100%;
+      height: 0.25rem;
+      opacity: 0;
+      transform: scale3d(1, 1, 1);
+      animation: move 3s ease-out infinite;
+    }
+
+    .chevron:first-child {
+      animation: move 3s ease-out 1s infinite;
+    }
+    
+    .chevron:nth-child(2) {
+      animation: move 3s ease-out 2s infinite;
+    }
+    
+    .chevron:before,
+    .chevron:after {
+      content: ' ';
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 51%;
+      background: #fff;
+    }
+    
+    .chevron:before {
+      left: 0;
+      transform: skew(0deg, 30deg);
+    }
+    
+    .chevron:after {
+      right: 0;
+      width: 50%;
+      transform: skew(0deg, -30deg);
+    }
+    
+    @keyframes move {
+      25% {
+        opacity: 1;
+    
+      }
+      33% {
+        opacity: 1;
+        transform: translateY(250%);
+      }
+      67% {
+        opacity: 1;
+        transform: translateY(390%);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(550%);
+      }
+    }
+    
+  }
+}

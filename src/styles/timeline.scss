@@ -1,0 +1,161 @@
+$timeline-marker-icon-size: 2.5em;
+
+@import "~bulma-timeline/dist/css/bulma-timeline";
+
+/* Enhancing the look-feel of bulma-extensions timeline */
+
+@include tablet() {
+  .timeline {
+    &.is-centered-responsive {
+
+      .timeline-header {
+        display: flex;
+        width: 100%;
+        align-self: center;
+      }
+
+      .timeline-item {
+        width: 50%;
+        align-self: flex-end;
+
+        &:nth-of-type(2n) {
+          align-self: flex-start;
+          margin-left: 0;
+          margin-right: $timeline-header-width / 2;
+
+          &::before {
+            right: -$timeline-line-width;
+            left: auto;
+          }
+          .timeline-marker {
+            left: auto;
+            right: -(($timeline-marker-size / 2) - $timeline-marker-border-size / 2) - $timeline-line-width;
+            &.is-image {
+              @each $dimension in $dimensions {
+                &.is-#{$dimension}x#{$dimension} {
+                  left: auto;
+                  right: ( $dimension / 2 ) * -1px;
+                }
+              }
+            }
+            &.is-icon {
+              left: auto;
+              right: -(($timeline-marker-icon-size / 2) - $timeline-marker-border-size / 2) - $timeline-line-width;
+            }
+          }
+          .timeline-content {
+            padding: $timeline-rtl-content-padding;
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            flex-basis: 100%;
+          }
+        }
+        &:nth-of-type(2n+1) {
+          &::before {
+            content: "";
+            background-color: $timeline-line-color;
+            display: block;
+            width: $timeline-line-width;
+            height: 100%;
+            position: absolute;
+            top: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Color */
+
+.timeline {
+  .timeline-item {
+    .timeline-marker.is-icon {
+      border-color: #0074D9;
+      background-color: #0074D9;
+      color: whitesmoke;
+    }
+  }
+}
+
+/* Effects */
+
+.timeline.is-centered-responsive.is-animated {
+  .timeline-header {
+    justify-content: flex-start;
+    opacity: 0;
+  }
+  .timeline-item {
+    opacity: 0;
+  }
+  .timeline-header.is-in-viewport {
+    opacity: 1;
+    animation: timeline-marker-bounce 0.6s;
+  }
+  .timeline-item.is-in-viewport {
+    opacity: 1;
+    .timeline-marker {
+      animation: timeline-marker-bounce 0.6s;
+    }
+    .timeline-content {
+      animation: timeline-content-bounce-in-right 0.6s;
+    }
+  }
+}
+
+@include tablet() {
+  .timeline.is-centered-responsive.is-animated {
+    .timeline-header {
+      justify-content: center;
+    }
+    .timeline-item:nth-of-type(2n).is-in-viewport {
+      .timeline-content {
+        animation-name: timeline-content-bounce-in-left;
+      }
+    }
+  }
+}
+
+@keyframes timeline-marker-bounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes timeline-content-bounce-in-right {
+  0% {
+    opacity: 0;
+    transform: translate3d(120px, 0, 0);
+  }
+  60% {
+    opacity: 1;
+    transform: translate3d(-10px, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes timeline-content-bounce-in-left {
+  0% {
+    opacity: 0;
+    transform: translate3d(-120px, 0, 0);
+  }
+  60% {
+    opacity: 1;
+    transform: translate3d(10px, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
