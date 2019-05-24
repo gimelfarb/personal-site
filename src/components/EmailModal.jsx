@@ -40,22 +40,25 @@ export default function EmailModal(props) {
                         <div className="container has-text-centered is-clipped">
                             <p className="title copied-notify">Copied!</p>
                         </div>
-                        :
-                        <div className="field has-addons has-addons-centered email-field">
-                            <div className="control has-icons-left">
-                                <input className="input is-large" readOnly={true} defaultValue={email || ''} />
-                                <span className="icon is-small is-left">
-                                    <i className="fas fa-envelope"></i>
-                                </span>
-                            </div>
-                            <div className="control">
-                                <button className="button is-large copy-button" onClick={onCopy}>
-                                    <span className="icon">
-                                        <i className="fas fa-copy"></i>
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
+                        : (
+                            active ?
+                                <div className="field has-addons has-addons-centered email-field">
+                                    <div className="control has-icons-left">
+                                        <input className="input is-large" readOnly={true} defaultValue={email || ''} />
+                                        <span className="icon is-small is-left">
+                                            <i className="fas fa-envelope"></i>
+                                        </span>
+                                    </div>
+                                    <div className="control">
+                                        <button className="button is-large copy-button" onClick={onCopy}>
+                                            <span className="icon">
+                                                <i className="fas fa-copy"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                                : null
+                        )
                 }
                 </div>
             </div>
