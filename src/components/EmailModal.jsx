@@ -34,6 +34,7 @@ export default function EmailModal(props) {
         <div className={'modal' + (active ? ' is-active' : '')}>
             <div className="modal-background"></div>
             <div className="modal-content">
+                <div className="section">
                 {
                     copied ?
                         <div className="container has-text-centered is-clipped">
@@ -48,15 +49,15 @@ export default function EmailModal(props) {
                                 </span>
                             </div>
                             <div className="control">
-                                <button className="button is-large" onClick={onCopy}>
+                                <button className="button is-large copy-button" onClick={onCopy}>
                                     <span className="icon">
                                         <i className="fas fa-copy"></i>
                                     </span>
-                                    <span>Copy</span>
                                 </button>
                             </div>
                         </div>
                 }
+                </div>
             </div>
             <button
                 className="modal-close is-large"

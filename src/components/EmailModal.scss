@@ -1,7 +1,10 @@
 .modal {
   .email-field {
-    .input {
-      width: 20rem;
+    @media screen and (min-width: 500px) {
+      .copy-button::after {
+        content: "Copy";
+        margin-left: calc(0.1875em + 0.375em + 1px);
+      }        
     }
   }
 

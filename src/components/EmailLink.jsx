@@ -20,7 +20,8 @@ export default function EmailLink() {
 
     return (
         <>
-            <Spice.Attach selector=".email-link" onClick={onOpenModal} />
+            <Spice.Attach selector="#email-link" onClick={onOpenModal} />
+            <Spice.Attach selector="#email-link2" onClick={onOpenModal} />
             <EmailModal 
                 active={isModalOpen}
                 email={myemail}
