@@ -11,10 +11,7 @@ module.exports = (_, {mode = 'development'}) => ({
     mode,
     devtool: 'source-map',
     entry: {
-        main: [
-            '@babel/polyfill',
-            './src/index.js'
-        ]
+        main: './src/index.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -34,7 +31,7 @@ module.exports = (_, {mode = 'development'}) => ({
         new HtmlBeautifyPlugin()
     ],
     optimization: {
-        minimizer: [new TerserJSPlugin(), new OptimizeCSSAssetsPlugin()],
+        minimizer: [new TerserJSPlugin({sourceMap: true}), new OptimizeCSSAssetsPlugin()],
         splitChunks: {
             chunks: 'all'
         }
