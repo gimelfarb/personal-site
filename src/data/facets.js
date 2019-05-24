@@ -1,5 +1,5 @@
 export default [
-    ['Human', 'static/image/bg-hero-coder.jpg'],
+    ['Freelancer', 'static/image/bg-hero-coder.jpg'],
     ['Dancer', 'static/image/bg-hero-dancer.jpg'],
     ['Traveller', 'static/image/bg-hero-traveller.jpg'],
     ['Explorer', 'static/image/bg-hero-explorer.jpg'],
